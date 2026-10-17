@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f9eee4">
+  <title>Masaya & Waka | 1st Anniversary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="screen opening active" id="opening" aria-label="オープニング">
+      <div class="cover-photo"></div><div class="cover-shade"></div>
+      <div class="cover-frame">
+        <p class="eyebrow">A SPECIAL DAY FOR US</p>
+        <h1>Happy<br><em>1st Anniversary</em></h1>
+        <p class="couple">Masaya <span>&</span> Waka</p>
+        <div class="ornament">✦　♡　✦</div>
+        <p class="anniversary-date">2026.11.01</p>
+        <p class="cover-copy">たくさんの思い出を<br>これからも一緒に…</p>
+        <button class="open-button" data-go="choices">TAP TO OPEN <span>›</span></button>
+      </div>
+      <div class="bottom-note">MADE WITH LOVE ♡</div>
+    </section>
+
+    <section class="screen choice-screen" id="choices" aria-label="行き先の選択">
+      <header class="page-heading">
+        <span class="mini-mickey">✦</span><p class="eyebrow">SPECIAL INVITATION</p>
+        <h2>どちらの特別な時間を<br>一緒に過ごしたい？</h2>
+        <div class="divider">♡</div>
+      </header>
+      <div class="choice-list">
+        <button class="choice-card" data-go="disney">
+          <img src="assets/disneyland.jpg" alt="夕焼けに輝くお城">
+          <span class="card-overlay"></span>
+          <span class="choice-card-text"><strong>Disney</strong><small>夢の世界で特別な1日を</small></span>
+          <span class="arrow">›</span>
+        </button>
+        <button class="choice-card" data-go="shiki">
+          <img src="assets/theater-stage.jpg" alt="赤い緞帳と金色に輝く劇場の舞台">
+          <span class="card-overlay theater-overlay"></span>
+          <span class="choice-card-text"><strong>劇団四季</strong><small>心を動かす特別な舞台を</small></span>
+          <span class="arrow">›</span>
+        </button>
+      </div>
+      <button class="back-link" data-go="opening">← BACK</button>
+    </section>
+
+    <section class="screen detail-screen" id="disney" aria-label="ディズニーの詳細選択">
+      <header class="page-heading">
+        <p class="eyebrow">A MAGICAL DAY</p><h2 class="english-title">Disney</h2>
+        <p class="question">どちらに行きたい？</p><div class="divider">♡</div>
+      </header>
+      <div class="detail-list">
+        <button class="detail-card" data-choice="東京ディズニーランド" data-image="assets/disneyland.jpg" data-theme="disney">
+          <img src="assets/disneyland.jpg" alt="華やかなお城とバルーン">
+          <span class="detail-label"><strong>東京ディズニーランド</strong><small>夢と魔法の王国で、特別な1日を</small></span><span class="arrow">›</span>
+        </button>
+        <button class="detail-card" data-choice="東京ディズニーシー" data-image="assets/disneysea.jpg" data-theme="disneysea">
+          <img src="assets/disneysea.jpg" alt="夕暮れの港町と火山">
+          <span class="detail-label"><strong>東京ディズニーシー</strong><small>大人のロマンがあふれる世界へ</small></span><span class="arrow">›</span>
+        </button>
+      </div>
+      <button class="back-link" data-go="choices">← BACK</button>
+    </section>
+
+    <section class="screen detail-screen" id="shiki" aria-label="劇団四季の詳細選択">
+      <header class="page-heading">
+        <p class="eyebrow">A NIGHT TO REMEMBER</p><h2>劇団四季</h2>
+        <p class="question">どれが見たいですか？</p><div class="divider">♡</div>
+      </header>
+      <div class="detail-list show-list">
+        <button class="detail-card show-card" data-choice="アラジン" data-image="assets/aladdin.jpg" data-theme="aladdin">
+          <img src="assets/aladdin.jpg" alt="魔法のランプと紫色の夜景">
+          <span class="show-overlay"></span><span class="detail-label"><strong>アラジン</strong><small>魔法の世界で特別な時間を</small></span><span class="arrow">›</span>
+        </button>
+        <button class="detail-card show-card" data-choice="ライオンキング" data-image="assets/lion-king.jpg" data-theme="lion">
+          <img src="assets/lion-king.jpg" alt="夕日に照らされるライオンの親子">
+          <span class="show-overlay"></span><span class="detail-label"><strong>ライオンキング</strong><small>心を揺さぶる圧巻のステージ</small></span><span class="arrow">›</span>
+        </button>
+        <button class="detail-card show-card" data-choice="リトルマーメイド" data-image="assets/mermaid.jpg" data-theme="mermaid">
+          <img src="assets/mermaid.jpg" alt="光が差し込む幻想的な海の世界">
+          <span class="show-overlay"></span><span class="detail-label"><strong>リトルマーメイド</strong><small>美しい音楽と感動の物語</small></span><span class="arrow">›</span>
+        </button>
+      </div>
+      <button class="back-link" data-go="choices">← BACK</button>
+    </section>
+
+    <section class="screen result-screen" id="result" aria-label="招待チケット">
+      <div class="result-photo" id="resultPhoto"></div>
+      <div class="ticket">
+        <p class="eyebrow">A LITTLE SURPRISE FOR YOU</p>
+        <h2>Special Ticket</h2>
+        <div class="ticket-sparkle">✦　♡　✦</div>
+        <p class="ticket-choice" id="ticketChoice">東京ディズニーランド</p>
+        <div class="ticket-image-wrap"><img id="ticketImage" src="assets/disneyland.jpg" alt="選んだ場所のイメージ"></div>
+        <p class="ticket-copy">素敵な時間を一緒に過ごそう！<br>たくさん笑って、またひとつ思い出を増やそうね。</p>
+        <p class="for-us">Masaya <span>&</span> Waka</p>
+        <div class="ticket-rule"></div>
+        <p class="date-label">OUR DAY</p><p class="date-value">これから一緒に決めよう</p>
+        <p class="final-message">これからもよろしく♡</p>
+        <p class="ticket-footer">THIS IS OUR LITTLE ADVENTURE</p>
+      </div>
+      <button class="back-link result-back" data-go="choices">← 選び直す</button>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

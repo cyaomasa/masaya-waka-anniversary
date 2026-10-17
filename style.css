@@ -1,0 +1,498 @@
+*{box-sizing:border-box} :root{--cream:#fffaf4;--gold:#b88751;--ink:#642b27;--rose:#f2d8d0}
+html,body{margin:0;min-height:100%;background:#f7eee6;color:var(--ink);font-family:"Noto Serif JP",serif}
+body{min-height:100svh;background:radial-gradient(circle at top,#fffaf4,#f1dfd3 80%);padding:18px 12px}
+button{font:inherit;cursor:pointer}.app{width:min(100%,470px);margin:0 auto;min-height:calc(100svh - 36px);position:relative}
+.screen{display:none;position:relative;min-height:calc(100svh - 36px);border:1px solid #d7b68e;border-radius:25px;overflow:hidden;background:var(--cream);box-shadow:0 12px 34px #5a301a18}
+.screen.active{display:flex;flex-direction:column;animation:appear .45s ease}
+@keyframes appear{from{opacity:.35;transform:translateY(7px)}to{opacity:1;transform:none}}
+.opening{color:#fffaf4;text-align:center;justify-content:center;align-items:center;isolation:isolate}
+.cover-photo,.cover-shade{position:absolute;inset:0;z-index:-2}.cover-photo{background:url("assets/cover-castle.jpg") center/cover}.cover-shade{z-index:-1;background:linear-gradient(180deg,#3e20202c 0%,#fff2df22 43%,#301c1b6e 100%)}
+.cover-frame{width:calc(100% - 38px);min-height:calc(100% - 40px);padding:40px 14px 28px;border:1px solid #f8dfb8;border-radius:190px 190px 24px 24px;outline:1px solid #f7d8a4;outline-offset:-7px;display:flex;align-items:center;flex-direction:column;justify-content:center;text-shadow:0 2px 12px #43201955}
+.eyebrow{font-family:"Cormorant Garamond",serif;letter-spacing:.18em;font-size:11px;margin:0 0 12px;color:#ae7948}
+.opening .eyebrow{color:#fff4dc}h1,h2,p{margin-top:0}h1{font:500 clamp(38px,10vw,55px)/.95 "Cormorant Garamond",serif;margin:10px 0 20px;letter-spacing:-.04em}h1 em{font-weight:500}.couple{font:italic 28px "Cormorant Garamond",serif;margin:0 0 17px}.couple span,.for-us span{color:#edc58d}.ornament{font-size:16px;color:#ffdfad;margin:0 0 12px}.anniversary-date{font:500 18px "Cormorant Garamond",serif;letter-spacing:.13em;margin-bottom:16px}.cover-copy{font-size:13px;line-height:1.9;margin-bottom:25px}.open-button{background:#fff8ed;color:#783b2e;border:1px solid #d7a86d;border-radius:999px;padding:13px 24px;width:min(100%,255px);letter-spacing:.12em;font:600 12px "Cormorant Garamond",serif;box-shadow:0 4px 18px #3d201b25}.open-button span{float:right;font-size:18px;line-height:12px}.bottom-note{position:absolute;bottom:15px;font:10px "Cormorant Garamond",serif;letter-spacing:.2em;color:#fff2d9}
+.page-heading{text-align:center;padding:34px 22px 17px;background:linear-gradient(#fffaf5ee,#fffaf5b8),radial-gradient(circle,#f4d9bf,#fffaf5)}
+.mini-mickey{color:#bd8a52;font-size:21px}.page-heading .eyebrow{margin:8px 0}.page-heading h2{font:italic 38px "Cormorant Garamond",serif;margin:4px 0 9px;color:#813a2e}.page-heading h2:not(.english-title){font:500 29px "Noto Serif JP",serif}.page-heading .question{font-size:16px;margin:0 0 8px}.divider{color:#b88751;letter-spacing:.3em;margin-top:7px}.choice-list,.detail-list{display:flex;flex-direction:column;gap:16px;padding:8px 20px 20px}
+.choice-card,.detail-card{position:relative;display:block;width:100%;padding:0;border:1px solid #c99d67;border-radius:15px;overflow:hidden;text-align:left;background:#f6e8d8;box-shadow:0 5px 13px #5d33141c;isolation:isolate}
+.choice-card{height:clamp(175px,27vh,225px)}.choice-card img,.detail-card img{position:absolute;width:100%;height:100%;inset:0;object-fit:cover;z-index:-2;transition:transform .5s}.choice-card:active img,.detail-card:active img{transform:scale(1.04)}
+.card-overlay{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#241614bd,#24161440 65%,#24161412)}.theater-overlay{background:linear-gradient(90deg,#1c0c18b8,#1c0c1840 75%,#1c0c1810)}
+.choice-card-text{position:absolute;left:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;color:#fff8eb;gap:8px;text-shadow:0 2px 10px #21100d99}.choice-card-text strong{font:italic 36px "Cormorant Garamond",serif}.choice-card:nth-child(2) .choice-card-text strong{font:500 28px "Noto Serif JP",serif}.choice-card-text small{font-size:12px}.arrow{position:absolute;right:15px;bottom:15px;display:grid;place-items:center;border-radius:50%;width:36px;height:36px;background:#fff8ed;color:#8c4b34;border:1px solid #d7ae79;font:26px "Cormorant Garamond",serif;box-shadow:0 2px 8px #32190f2a}
+.detail-screen .page-heading{padding-top:27px}.detail-list{gap:14px}.detail-card{height:clamp(130px,21vh,170px);display:flex;align-items:flex-end}.detail-card img{object-position:center 45%}.detail-label{display:flex;flex-direction:column;gap:6px;position:relative;z-index:1;width:100%;padding:14px 55px 14px 16px;background:linear-gradient(0deg,#fff9f1f5,#fff9f1d9);color:#612f28}.detail-label strong{font-size:17px;font-weight:600}.detail-label small{font-size:11px;line-height:1.5}.detail-card .arrow{bottom:14px;right:12px}.show-list{gap:12px}.show-card{height:clamp(112px,16vh,145px);align-items:center}.show-card img{z-index:-2}.show-overlay{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#160e18c7,#160e1844 70%)}.show-card .detail-label{background:transparent;color:#fff8ed;text-shadow:0 1px 6px #12080b;padding:12px 54px 12px 17px}.show-card .detail-label strong{font-size:20px}.show-card .detail-label small{font-size:11px}
+.back-link{align-self:center;border:0;background:transparent;color:#9b714b;padding:10px 18px 18px;font:12px "Cormorant Garamond",serif;letter-spacing:.12em}
+.result-screen{padding:25px 17px 18px;align-items:center;background:linear-gradient(#fffaf4ed,#fffaf4f5),url("assets/cover-castle.jpg") center/cover}.result-photo{position:absolute;inset:0;background:url("assets/cover-castle.jpg") center/cover;opacity:.13;z-index:0}.ticket{position:relative;z-index:1;width:100%;border:1px solid #c69a64;outline:1px solid #ead2ae;outline-offset:-6px;border-radius:190px 190px 18px 18px;background:#fffaf3f2;text-align:center;padding:31px 19px 22px;box-shadow:0 8px 26px #57321c18}.ticket h2{font:italic 39px "Cormorant Garamond",serif;margin:0 0 2px;color:#a45e36}.ticket-sparkle{color:#bb8a50;margin-bottom:10px}.ticket-choice{font-size:19px;font-weight:500;margin:0 0 14px}.ticket-image-wrap{height:clamp(155px,25vh,230px);overflow:hidden;border:4px solid #fff;border-radius:6px;box-shadow:0 2px 9px #6c43282c}.ticket-image-wrap img{width:100%;height:100%;object-fit:cover}.ticket-copy{font-size:12px;line-height:2;margin:15px 0 12px}.for-us{font:italic 25px "Cormorant Garamond",serif;margin:0 0 12px}.ticket-rule{height:1px;background:linear-gradient(90deg,transparent,#d2b183,transparent);margin:0 10px 12px}.date-label{font:11px "Cormorant Garamond",serif;letter-spacing:.2em;color:#ad7d4d;margin:0 0 3px}.date-value{font-size:12px;margin:0 0 12px}.final-message{font-size:18px;color:#873e35;margin:0 0 15px}.ticket-footer{font:9px "Cormorant Garamond",serif;letter-spacing:.18em;color:#b28a5b;margin:0}.result-back{position:relative;z-index:1;padding-bottom:0}
+@media(min-width:600px){body{padding:28px}.app{width:min(100%,500px)}.screen{min-height:780px}.opening{min-height:780px}.cover-frame{min-height:730px}.choice-card{height:220px}.detail-card{height:165px}.show-card{height:135px}.ticket-image-wrap{height:220px}}
+@media(max-height:720px){.page-heading{padding-top:19px;padding-bottom:8px}.choice-list,.detail-list{gap:10px;padding-top:4px;padding-bottom:10px}.choice-card{height:155px}.detail-card{height:118px}.show-card{height:105px}.ticket{padding-top:22px}.ticket-image-wrap{height:145px}}
+
+
+/* ---------------------------------------------------------
+   Reference-inspired refresh for screens 1–4.
+   The final ticket/result screen styles above remain unchanged.
+   --------------------------------------------------------- */
+.opening {
+  color: #742f2a;
+  background: #f8e6d5;
+}
+.opening .cover-photo {
+  background-position: center center;
+  filter: saturate(.98);
+}
+.opening .cover-shade {
+  background:
+    linear-gradient(180deg, #fff0df28 0%, #fff0df08 45%, #31171310 100%),
+    linear-gradient(90deg, #fff5e31b, transparent 60%);
+}
+.opening .cover-frame {
+  width: 100%;
+  min-height: 100%;
+  border: 0;
+  outline: 0;
+  border-radius: 0;
+  padding: clamp(48px, 8vh, 82px) 20px clamp(80px, 12vh, 118px);
+  justify-content: flex-start;
+  text-shadow: 0 1px 7px #fff2e4b3;
+}
+.opening .eyebrow {
+  color: #8a4d3d;
+  font-size: 10px;
+  letter-spacing: .24em;
+  margin-bottom: 14px;
+}
+.opening h1 {
+  color: #6b2927;
+  font-size: clamp(38px, 9.6vw, 54px);
+  line-height: .94;
+  margin: 8px 0 17px;
+  text-shadow: 0 2px 12px #fff0df6b;
+}
+.opening .couple {
+  color: #823b31;
+  font-size: clamp(26px, 6.4vw, 32px);
+  margin-bottom: 14px;
+}
+.opening .couple span { color: #b88955; }
+.opening .ornament {
+  color: #ac7744;
+  margin-bottom: 9px;
+}
+.opening .anniversary-date {
+  color: #78382f;
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+.opening .cover-copy {
+  color: #743b34;
+  line-height: 1.9;
+  font-size: 12px;
+  margin-bottom: 0;
+}
+.opening .open-button {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(30px, 7vh, 60px);
+  transform: translateX(-50%);
+  width: min(78%, 265px);
+  min-height: 48px;
+  border: 1px solid #d5a96f;
+  outline: 1px solid #fff0d8;
+  outline-offset: -5px;
+  border-radius: 999px;
+  padding: 13px 24px;
+  background: linear-gradient(180deg, #fffaf1, #f8e5ca);
+  color: #79372d;
+  letter-spacing: .16em;
+  box-shadow: 0 4px 16px #4b211c22;
+}
+.opening .bottom-note {
+  display: none;
+}
+
+/* Warm, lightly textured paper and floral corners on the selection screens. */
+.choice-screen,
+.detail-screen {
+  background:
+    radial-gradient(ellipse at 7% 2%, #f5ddd3 0, #f5ddd300 25%),
+    radial-gradient(ellipse at 98% 13%, #f0d2c2 0, #f0d2c200 24%),
+    linear-gradient(145deg, #fffaf4, #f8eddf 72%, #fff8ef);
+  border-color: #d6b58a;
+}
+.choice-screen::before,
+.detail-screen::before {
+  content: "✿  ❀";
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 7px;
+  left: 10px;
+  color: #d7a69b;
+  opacity: .8;
+  font-size: 26px;
+  letter-spacing: 2px;
+}
+.choice-screen::after,
+.detail-screen::after {
+  content: "❀  ✿";
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  right: 9px;
+  bottom: 6px;
+  color: #d7a69b;
+  opacity: .72;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+.choice-screen > *,
+.detail-screen > * { position: relative; z-index: 1; }
+.choice-screen .page-heading,
+.detail-screen .page-heading {
+  position: relative;
+  padding: 32px 21px 13px;
+  background: linear-gradient(180deg, #fffaf4f2, #fffaf4d9);
+  border-bottom: 1px solid #ead7bd;
+}
+.choice-screen .page-heading::before,
+.detail-screen .page-heading::before {
+  content: "❀";
+  position: absolute;
+  top: 5px;
+  left: 13px;
+  color: #dcaea4;
+  opacity: .75;
+  font-size: 29px;
+}
+.choice-screen .page-heading::after,
+.detail-screen .page-heading::after {
+  content: "✿";
+  position: absolute;
+  top: 17px;
+  right: 15px;
+  color: #d5a39a;
+  opacity: .72;
+  font-size: 24px;
+}
+.choice-screen .mini-mickey {
+  color: #b47f4b;
+  font-size: 18px;
+}
+.choice-screen .page-heading .eyebrow,
+.detail-screen .page-heading .eyebrow {
+  margin: 5px 0 8px;
+  color: #a66d3c;
+  font-size: 11px;
+  letter-spacing: .17em;
+}
+.choice-screen .page-heading h2,
+.detail-screen .page-heading h2 {
+  color: #712e29;
+  font-family: "Noto Serif JP", serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: clamp(22px, 5.5vw, 27px);
+  line-height: 1.55;
+  margin: 4px 0 4px;
+}
+.detail-screen .page-heading h2.english-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 38px;
+  font-style: italic;
+  line-height: 1.05;
+}
+.detail-screen .page-heading .question {
+  font-size: 15px;
+  color: #77352e;
+  margin: 0 0 5px;
+}
+.choice-screen .divider,
+.detail-screen .divider {
+  margin-top: 6px;
+  color: #b57d44;
+  font-size: 14px;
+}
+.choice-list,
+.detail-list {
+  position: relative;
+  gap: 15px;
+  padding: 17px 19px 13px;
+}
+.choice-card,
+.detail-card {
+  border: 2px solid #fff8ec;
+  outline: 1px solid #c99c63;
+  outline-offset: -1px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px #70401e20;
+  background: #f7e9d8;
+}
+.choice-card {
+  height: clamp(184px, 28vh, 225px);
+}
+.choice-card img {
+  object-position: center 44%;
+}
+.choice-card .card-overlay {
+  background: linear-gradient(90deg,
+    #fff7ed00 0%,
+    #fff7ed09 35%,
+    #fff8eef0 59%,
+    #fff8efff 100%);
+}
+.choice-card .theater-overlay {
+  background: linear-gradient(90deg,
+    #180b1000 0%,
+    #180b1024 36%,
+    #fff7edf0 59%,
+    #fff8efff 100%);
+}
+.choice-card .choice-card-text {
+  left: 55%;
+  right: 14px;
+  width: auto;
+  align-items: center;
+  text-align: center;
+  color: #71362d;
+  gap: 7px;
+  text-shadow: 0 1px 4px #fffaf0b0;
+}
+.choice-card .choice-card-text strong {
+  font-size: clamp(28px, 7vw, 37px);
+  color: #7c322c;
+}
+.choice-card:nth-child(2) .choice-card-text strong {
+  font-size: 24px;
+  font-family: "Noto Serif JP", serif;
+}
+.choice-card .choice-card-text small {
+  font-size: 11px;
+  line-height: 1.75;
+  color: #75443a;
+}
+.choice-card .arrow {
+  width: 34px;
+  height: 34px;
+  right: 11px;
+  bottom: 11px;
+  color: #9c5738;
+  background: #fffaf2;
+  border-color: #d7b27c;
+}
+.choice-screen .back-link,
+.detail-screen .back-link {
+  color: #956a43;
+  font: 12px "Cormorant Garamond", serif;
+  letter-spacing: .15em;
+  padding: 7px 15px 18px;
+}
+
+/* Disney detail screen: large scenic image, ivory caption panel, gold trim. */
+.detail-screen .detail-list { gap: 15px; }
+.detail-screen .detail-card:not(.show-card) {
+  height: clamp(190px, 27vh, 224px);
+  display: block;
+  overflow: hidden;
+}
+.detail-screen .detail-card:not(.show-card) img {
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  width: 100%;
+  height: calc(100% - 59px);
+  object-fit: cover;
+  object-position: center 46%;
+}
+.detail-screen .detail-card:not(.show-card) .detail-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 59px;
+  padding: 7px 48px 7px 10px;
+  gap: 3px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-top: 1px solid #d9b984;
+  background: linear-gradient(180deg, #fffaf3, #f8ead7);
+  color: #69352c;
+}
+.detail-screen .detail-card:not(.show-card) .detail-label strong {
+  font-size: 15px;
+  font-weight: 500;
+}
+.detail-screen .detail-card:not(.show-card) .detail-label small {
+  font-size: 10px;
+  line-height: 1.45;
+  color: #835447;
+}
+.detail-screen .detail-card:not(.show-card) .arrow {
+  width: 32px;
+  height: 32px;
+  right: 10px;
+  bottom: 12px;
+  background: #fffaf2;
+  border-color: #d7ad72;
+  color: #87452f;
+}
+
+/* Theater selection: dark, cinematic show cards with a white arrow button. */
+.detail-screen .show-list {
+  gap: 12px;
+  padding-top: 13px;
+}
+.detail-screen .show-card {
+  height: clamp(112px, 17vh, 142px);
+  display: block;
+  border-color: #fff2d9;
+  outline-color: #ba874e;
+  background: #21101b;
+}
+.detail-screen .show-card img {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.detail-screen .show-card .show-overlay {
+  background: linear-gradient(90deg, #1b0e1bd9 0%, #1b0e1b75 48%, #1b0e1b08 100%);
+}
+.detail-screen .show-card .detail-label {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 77%;
+  min-height: 100%;
+  padding: 18px 47px 16px 17px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+  color: #fff9ed;
+  text-align: left;
+  text-shadow: 0 1px 7px #17090b;
+  background: linear-gradient(90deg, #1b0e1bc9, #1b0e1b55 83%, transparent);
+}
+.detail-screen .show-card .detail-label strong {
+  color: #fff9ed;
+  font-size: 19px;
+  font-weight: 500;
+}
+.detail-screen .show-card .detail-label small {
+  color: #fff2de;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.detail-screen .show-card .arrow {
+  top: 50%;
+  right: 10px;
+  bottom: auto;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  background: #fff8ed;
+  border-color: #f7dfb5;
+  color: #813d2d;
+  box-shadow: 0 2px 8px #14090b40;
+}
+@media (min-width: 600px) {
+  .opening .cover-frame { padding-top: 70px; }
+  .choice-card { height: 220px; }
+  .detail-screen .detail-card:not(.show-card) { height: 220px; }
+  .detail-screen .show-card { height: 135px; }
+}
+@media (max-height: 720px) {
+  .opening .cover-frame { padding-top: 34px; }
+  .opening h1 { font-size: 38px; margin-bottom: 13px; }
+  .opening .cover-copy { font-size: 11px; }
+  .opening .open-button { bottom: 20px; }
+  .choice-screen .page-heading,
+  .detail-screen .page-heading { padding-top: 21px; padding-bottom: 8px; }
+  .choice-list, .detail-list { gap: 10px; padding-top: 10px; }
+  .choice-card { height: 154px; }
+  .detail-screen .detail-card:not(.show-card) { height: 150px; }
+  .detail-screen .show-card { height: 104px; }
+}
+
+
+/* COVER-ONLY UPDATE: keep the complete cover image visible without stretching.
+   Softly blurred copies fill any spare space on different screen ratios.
+   Screens 2–5 intentionally retain their existing styles. */
+.opening {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: #f9e8d8;
+  color: #6e3027;
+}
+.opening::before {
+  content: "";
+  position: absolute;
+  inset: -22px;
+  z-index: -1;
+  background: url("assets/cover-no-letter.jpg") center center / cover no-repeat;
+  filter: blur(17px) brightness(.93) saturate(1.05);
+  transform: scale(1.04);
+  opacity: .92;
+}
+.opening .cover-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url("assets/cover-no-letter.jpg") center center / contain no-repeat;
+  filter: none;
+}
+.opening .cover-shade {
+  display: none;
+}
+.opening .cover-frame {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  border-radius: 0;
+  justify-content: initial;
+  pointer-events: none;
+  text-shadow: none;
+}
+/* Cover typography is part of the carefully composed cover artwork.
+   Keep a real accessible button over the artwork's TAP TO OPEN button,
+   without duplicating or overlapping any text. */
+.opening .cover-frame > :not(.open-button) {
+  display: none !important;
+}
+.opening .open-button {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  border-radius: 0;
+  background: transparent;
+  color: transparent;
+  font-size: 0;
+  letter-spacing: 0;
+  box-shadow: none;
+  opacity: 0;
+  pointer-events: auto;
+}
+.opening .open-button span {
+  display: none;
+}
+.opening .bottom-note {
+  display: none;
+}
+@media (max-height: 720px) {
+  .opening .cover-frame {
+    padding: 0;
+  }
+  .opening .open-button {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
